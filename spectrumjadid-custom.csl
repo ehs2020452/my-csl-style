@@ -1,0 +1,104 @@
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US">
+<info>
+<title>Spectrum of Decision Making and Applications (Custom Numeric APA-like)</title>
+<id>https://csl.mendeley.com/styles/855046341/spectrum-decision-making-applications-custom</id>
+<link href="http://www.zotero.org/styles/spectrum-decision-making-applications-custom" rel="self"/>
+<link href="https://www.spectrumofdm.com/" rel="documentation"/>
+<author>
+<name>Custom style prepared for the user</name>
+</author>
+<category citation-format="numeric"/>
+<summary>Numbered citations in order of appearance; APA-like author-year reference entries matching the supplied Spectrum of Decision Making and Applications sample.</summary>
+<updated>2026-11-20T08:55:58+00:00</updated>
+<rights license="http://creativecommons.org/licenses/by-sa/3.0/">This style may be shared and adapted under the Creative Commons Attribution-ShareAlike 3.0 License.</rights>
+</info>
+<locale xml:lang="en">
+<terms>
+<term name="and">and</term>
+<term name="et-al">et al.</term>
+</terms>
+</locale>
+<macro name="author">
+<names variable="author" delimiter=", ">
+<name name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter=", " and="symbol" delimiter-precedes-last="always" et-al-min="21" et-al-use-first="19"/>
+<substitute>
+<names variable="editor"/>
+<text variable="title"/>
+</substitute>
+</names>
+</macro>
+<macro name="issued">
+<choose>
+<if variable="issued">
+<date variable="issued">
+<date-part name="year"/>
+</date>
+</if>
+<else>
+<text term="no date" form="short"/>
+</else>
+</choose>
+</macro>
+<macro name="title">
+<text variable="title" text-case="sentence"/>
+</macro>
+<macro name="doi-url">
+<choose>
+<if variable="DOI">
+<text variable="DOI" prefix="https://doi.org/"/>
+</if>
+<else-if variable="URL">
+<text variable="URL"/>
+</else-if>
+</choose>
+</macro>
+<citation collapse="citation-number">
+<sort>
+<key variable="citation-number"/>
+</sort>
+<layout prefix="[" suffix="]" delimiter=", ">
+<text variable="citation-number"/>
+</layout>
+</citation>
+<bibliography second-field-align="flush" et-al-min="21" et-al-use-first="19" entry-spacing="0" line-spacing="1">
+<sort>
+<key variable="citation-number"/>
+</sort>
+<layout>
+<text variable="citation-number" prefix="[" suffix="]"/>
+<group delimiter=" ">
+<group delimiter=" ">
+<text macro="author"/>
+<group prefix="(" suffix=").">
+<text macro="issued"/>
+</group>
+</group>
+<text macro="title" suffix="."/>
+<choose>
+<if type="article-journal">
+<group delimiter=", ">
+<text variable="container-title" font-style="italic"/>
+<group delimiter="">
+<text variable="volume" font-style="italic"/>
+<text variable="issue" prefix="(" suffix=")"/>
+</group>
+<text variable="page"/>
+</group>
+<text macro="doi-url" prefix=". "/>
+</if>
+<else-if type="paper-conference">
+<group delimiter=", ">
+<text variable="container-title" font-style="italic"/>
+<text variable="page"/>
+</group>
+<text macro="doi-url" prefix=". "/>
+</else-if>
+<else>
+<text variable="publisher" suffix="."/>
+<text macro="doi-url" prefix=" "/>
+</else>
+</choose>
+</group>
+</layout>
+</bibliography>
+</style>
